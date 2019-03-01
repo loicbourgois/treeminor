@@ -7,6 +7,7 @@ import { PlaygroundComponent } from './playground/playground.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EditorComponent } from './editor/editor.component';
+import { WorldComponent } from './world/world.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EditorComponent } from './editor/editor.component';
     PlaygroundComponent,
     HomeComponent,
     PageNotFoundComponent,
-    EditorComponent
+    EditorComponent,
+    WorldComponent
   ],
   imports: [
     BrowserModule,

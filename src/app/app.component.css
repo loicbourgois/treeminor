@@ -4,7 +4,7 @@
   flex-direction: column;
 }
 
-nav {
+nav, footer {
   background: #000;
   display: flex;
 }
@@ -17,4 +17,8 @@ a {
 
 a:hover {
   color: #aaf;
+}
+
+footer {
+  justify-content: flex-end;
 }

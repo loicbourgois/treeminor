@@ -1,0 +1,7 @@
+:host {
+  display: flex;
+}
+
+canvas {
+  flex-grow: 1;
+}

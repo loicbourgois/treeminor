@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { PlaygroundComponent } from './playground/playground.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlaygroundComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,

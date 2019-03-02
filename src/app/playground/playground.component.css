@@ -6,8 +6,10 @@
 editor {
   border-left: solid 1px #000;
   flex-grow: 1;
+  width: 0;
 }
 
 world {
   flex-grow: 2;
+  width: 0;
 }

@@ -5,7 +5,7 @@ import { Renderer } from '../engine/renderer';
 import { World } from '../engine/world';
 
 @Component({
-  selector: 'world',
+  selector: 'tmn-world',
   templateUrl: './world.component.html',
   styleUrls: ['./world.component.css']
 })
@@ -37,6 +37,7 @@ export class WorldComponent implements OnInit {
         let fragmentShaderSource = data[0];
         let vertexShaderSource = data[1];
         let canvas : any = document.getElementById('canvas');
+        this.world = new World(10, 10);
         this.renderer = new Renderer(canvas, fragmentShaderSource, vertexShaderSource);
       },
       error => console.error(error)

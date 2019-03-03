@@ -10,36 +10,34 @@ export class Renderer {
     this.canvas = canvas;
     this.fragmentShaderSource = fragmentShaderSource;
     this.vertexShaderSource = vertexShaderSource;
-    
-    let gl = canvas.getContext('webgl2');
+    const gl = canvas.getContext('webgl2');
     if(!gl) {
-      
     }
-    
+
     this.vertexShader = this.createShader(gl, gl.VERTEX_SHADER, this.vertexShaderSource);
     this.fragmentShader = this.createShader(gl, gl.FRAGMENT_SHADER, this.fragmentShaderSource);
     let program = this.createProgram(gl, this.vertexShader, this.fragmentShader);
-    
+
     // Attributes
-    var positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+    let positionAttributeLocation = gl.getAttribLocation(program, "a_position");
     // Buffer
-    var positionBuffer = gl.createBuffer();
+    let positionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    var positions = [
+    const positions = [
       0, 0,
       0, 0.5,
       0.7, 0,
     ];
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
     // Vertex Array
-    var vao = gl.createVertexArray();
+    let vao = gl.createVertexArray();
     gl.bindVertexArray(vao);
     gl.enableVertexAttribArray(positionAttributeLocation);
-    var size = 2;          // 2 components per iteration
-    var type = gl.FLOAT;   // the data is 32bit floats
-    var normalize = false; // don't normalize the data
-    var stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
-    var offset = 0;        // start at the beginning of the buffer
+    let size = 2;          // 2 components per iteration
+    let type = gl.FLOAT;   // the data is 32bit floats
+    let normalize = false; // don't normalize the data
+    let stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
+    let offset = 0;        // start at the beginning of the buffer
     gl.vertexAttribPointer(
         positionAttributeLocation, size, type, normalize, stride, offset)
     // Resizing
@@ -52,9 +50,9 @@ export class Renderer {
     gl.useProgram(program);
     gl.bindVertexArray(vao);
     //
-    var primitiveType = gl.TRIANGLES;
-    var offset = 0;
-    var count = 3;
+    let primitiveType = gl.TRIANGLES;
+    let offset = 0;
+    let count = 3;
     gl.drawArrays(primitiveType, offset, count);
   }
 
@@ -85,8 +83,8 @@ export class Renderer {
 
   resizeCanvasToDisplaySize(canvas) {
     // Lookup the size the browser is displaying the canvas.
-    var displayWidth  = canvas.clientWidth;
-    var displayHeight = canvas.clientHeight;
+    let displayWidth  = canvas.clientWidth;
+    let displayHeight = canvas.clientHeight;
     // Check if the canvas is not the same size.
     if (canvas.width  !== displayWidth ||
         canvas.height !== displayHeight) {

@@ -8,6 +8,6 @@ precision mediump float;
 out vec4 outColor;
 
 void main() {
-  // Just set the output to a constant black
-  outColor = vec4(0, 0, 0, 1);
+  // Just set the output to a constant green
+  outColor = vec4(0.5, 0.8, 0.5, 1);
 }

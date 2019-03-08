@@ -3,7 +3,8 @@
 ## Todo
 
 - [x] Create class Demo
-- [ ] Add title and description to Demo
+- [x] Add title and description to Demo
+- [ ] Initialize title and description
 - [x] Create component DemoComponent
 - [ ] Add demo to DemoComponent
 - [ ] Create component DemosComponent

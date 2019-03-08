@@ -15,7 +15,7 @@ export class Renderer {
   };
 
   constructor(canvas, fragmentShaderSource, vertexShaderSource,
-      worldFragmentShaderSource, worldVertexShaderSource) {
+              worldFragmentShaderSource, worldVertexShaderSource) {
     this.canvas = canvas;
     this.fragmentShaderSource = fragmentShaderSource;
     this.vertexShaderSource = vertexShaderSource;

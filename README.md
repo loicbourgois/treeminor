@@ -2,7 +2,7 @@
 
 ## Todo
 
-- [ ] Create class Demo
+- [x] Create class Demo
 - [ ] Add title and description to Demo
 - [x] Create component DemoComponent
 - [ ] Add demo to DemoComponent

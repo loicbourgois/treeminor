@@ -4,5 +4,7 @@ export class Demo {
   private title: string;
 
   constructor() {
+    this.description = '';
+    this.title = '';
   }
 }

@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EditorComponent } from './editor/editor.component';
 import { WorldComponent } from './world/world.component';
+import { DemoComponent } from './demo/demo.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { WorldComponent } from './world/world.component';
     HomeComponent,
     PageNotFoundComponent,
     EditorComponent,
-    WorldComponent
+    WorldComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,

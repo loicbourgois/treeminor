@@ -5,7 +5,7 @@ export class Color {
   private b: float;
   private a: float;
 
-  constructor(color: Object) {
+  constructor(color: any) {
     this.r = (color.r !== undefined) ? color.r : 0.5;
     this.g = (color.g !== undefined) ? color.g : 0.5;
     this.b = (color.b !== undefined) ? color.b : 0.5;

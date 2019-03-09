@@ -13,7 +13,7 @@
 - [x] Setup routing for DemosComponent
 - [x] Edit html for DemosComponent
 - [x] Create class Point
-- [ ] Create class Color
+- [x] Create class Color
 - [ ] Add r, g, b, a to Color
 - [ ] Create class Vector
 - [ ] Add x, y to Vector

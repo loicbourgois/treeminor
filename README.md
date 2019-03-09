@@ -12,14 +12,15 @@
 - [x] Create demo Point
 - [x] Setup routing for DemosComponent
 - [x] Edit html for DemosComponent
+- [ ] Create class Point
+- [ ] Add position, speed, radius, color to Point
+- [ ] Add configuration to Demo
 - [ ] Create demo Speed
 - [ ] Create demo Points
-- [ ] Add configuration to Demo
 - [ ] Load demos from files via url
 - [ ] List demos on left of DemosComponent
 - [ ] Load demo on click
-- [ ] Create class Point
-- [ ] Add position, speed, radius, color to Point
+- [ ] Display title, description, configuration in DemoComponent
 - [ ] Implement demo Point
 - [ ] Create demo Collision
 - [ ] Implement demo Collision

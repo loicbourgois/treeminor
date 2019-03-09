@@ -10,7 +10,7 @@
 - [x] Add demo to DemoComponent
 - [x] Create component DemosComponent
 - [x] Add demos, demoUrls to DemosComponent
-- [ ] Create demo Point
+- [x] Create demo Point
 - [ ] Create demo Speed
 - [ ] Create demo Points
 - [ ] Load demos from files via url

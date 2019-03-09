@@ -8,7 +8,7 @@
 - [x] Create component DemoComponent
 - [ ] Add url to Demo
 - [x] Add demo to DemoComponent
-- [ ] Create component DemosComponent
+- [x] Create component DemosComponent
 - [ ] Add demos, demoUrls to DemosComponent
 - [ ] Create demo Point
 - [ ] Create demo Speed

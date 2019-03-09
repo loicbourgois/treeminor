@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { EditorComponent } from './editor/editor.component';
 import { WorldComponent } from './world/world.component';
 import { DemoComponent } from './demo/demo.component';
+import { DemosComponent } from './demos/demos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DemoComponent } from './demo/demo.component';
     PageNotFoundComponent,
     EditorComponent,
     WorldComponent,
-    DemoComponent
+    DemoComponent,
+    DemosComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Demo } from './';
+import { Demo } from './demo';
 
 @Component({
   selector: 'tmn-demo',

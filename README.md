@@ -14,7 +14,7 @@
 - [x] Edit html for DemosComponent
 - [x] Create class Point
 - [x] Create class Color
-- [ ] Add r, g, b, a to Color
+- [x] Add r, g, b, a to Color
 - [ ] Create class Vector
 - [ ] Add x, y to Vector
 - [ ] Add position, speed, radius, color to Point

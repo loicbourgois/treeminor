@@ -10,7 +10,7 @@
 - [x] Create component DemosComponent
 - [x] Add demos, demoUrls to DemosComponent
 - [x] Create demo Point
-- [ ] Setup routing for DemosComponent
+- [x] Setup routing for DemosComponent
 - [ ] Edit html for DemosComponent
 - [ ] Create demo Speed
 - [ ] Create demo Points

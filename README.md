@@ -1,6 +1,6 @@
 # Treeminor
 
-## Todo
+## Backlog
 
 - [x] Create class Demo
 - [x] Add title and description to Demo

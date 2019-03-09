@@ -16,7 +16,7 @@
 - [x] Create class Color
 - [x] Add r, g, b, a to Color
 - [x] Create class Vector
-- [ ] Add x, y to Vector
+- [x] Add x, y to Vector
 - [ ] Add position, speed, radius, color to Point
 - [ ] Add configuration to Demo
 - [ ] Create demo Speed

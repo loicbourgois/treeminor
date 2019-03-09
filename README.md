@@ -15,7 +15,7 @@
 - [x] Create class Point
 - [x] Create class Color
 - [x] Add r, g, b, a to Color
-- [ ] Create class Vector
+- [x] Create class Vector
 - [ ] Add x, y to Vector
 - [ ] Add position, speed, radius, color to Point
 - [ ] Add configuration to Demo

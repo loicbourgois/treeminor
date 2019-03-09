@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-grow: 1;
+}
+
+.list {
+  flex-grow: 1;
+  width: 0;
+}
+
+tmn-demo {
+  flex-grow: 4;
+  width: 0;
+}

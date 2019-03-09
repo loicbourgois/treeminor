@@ -12,7 +12,7 @@
 - [x] Create demo Point
 - [x] Setup routing for DemosComponent
 - [x] Edit html for DemosComponent
-- [ ] Create class Point
+- [x] Create class Point
 - [ ] Add position, speed, radius, color to Point
 - [ ] Add configuration to Demo
 - [ ] Create demo Speed

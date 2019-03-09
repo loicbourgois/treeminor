@@ -1,9 +1,9 @@
 export class Color {
 
-  private r: float;
-  private g: float;
-  private b: float;
-  private a: float;
+  private r: number;
+  private g: number;
+  private b: number;
+  private a: number;
 
   constructor(color: any) {
     this.r = (color.r !== undefined) ? color.r : 0.5;

@@ -1,8 +1,11 @@
+import { Color } from './color';
+import { Vector } from './vector';
+
 export class Point {
 
   private position: Vector;
   private speed: Vector;
-  private radius: float;
+  private radius: number;
   private color: Color;
 
   constructor(point: any) {

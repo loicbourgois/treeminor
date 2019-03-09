@@ -1,7 +1,7 @@
 export class Vector {
 
-  private x: float;
-  private y: float;
+  private x: number;
+  private y: number;
 
   constructor(vector: any) {
     this.x = (vector.x !== undefined) ? vector.x : 0.0;

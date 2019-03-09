@@ -7,7 +7,7 @@
 - [x] Initialize title and description
 - [x] Create component DemoComponent
 - [ ] Add url to Demo
-- [ ] Add demo to DemoComponent
+- [x] Add demo to DemoComponent
 - [ ] Create component DemosComponent
 - [ ] Add demos, demoUrls to DemosComponent
 - [ ] Create demo Point

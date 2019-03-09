@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Demo } from './';
 
 @Component({
   selector: 'tmn-demo',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent implements OnInit {
+
+  private demo: Demo;
 
   constructor() { }
 

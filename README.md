@@ -6,17 +6,18 @@
 - [x] Add title and description to Demo
 - [x] Initialize title and description
 - [x] Create component DemoComponent
-- [ ] Add url to Demo
 - [x] Add demo to DemoComponent
 - [x] Create component DemosComponent
 - [x] Add demos, demoUrls to DemosComponent
 - [x] Create demo Point
+- [ ] Setup routing for DemosComponent
+- [ ] Edit html for DemosComponent
 - [ ] Create demo Speed
 - [ ] Create demo Points
+- [ ] Add configuration to Demo
 - [ ] Load demos from files via url
 - [ ] List demos on left of DemosComponent
 - [ ] Load demo on click
-- [ ] Setup routing for demos
 - [ ] Create class Point
 - [ ] Add position, speed, radius, color to Point
 - [ ] Implement demo Point

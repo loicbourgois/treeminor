@@ -2,19 +2,6 @@
 
 ## Backlog
 
-- [x] Create class Demo
-- [x] Add title and description to Demo
-- [x] Initialize title and description
-- [x] Create component DemoComponent
-- [x] Add demo to DemoComponent
-- [x] Create component DemosComponent
-- [x] Add demos, demoUrls to DemosComponent
-- [x] Create demo Point
-- [x] Setup routing for DemosComponent
-- [x] Edit html for DemosComponent
-- [x] Create class Point
-- [x] Create class Color
-- [x] Add r, g, b, a to Color
 - [x] Create class Vector
 - [x] Add x, y to Vector
 - [x] Add position, speed, radius, color to Point

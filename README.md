@@ -11,7 +11,7 @@
 - [x] Add loadConfiguration() to Demo
 - [x] Setup configuration for demo Point
 - [x] Create demo Speed
-- [ ] Fix configuration for demo Point
+- [x] Fix configuration for demo Point
 - [ ] Add points to World
 - [ ] Create configuration for demo Points
 - [ ] Load demos from files via url

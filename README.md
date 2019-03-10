@@ -11,18 +11,23 @@
 - [x] Add loadConfiguration() to Demo
 - [x] Setup configuration for demo Point
 - [x] Create demo Speed
-- [ ] Create demo Points
+- [ ] Fix configuration for demo Point
+- [ ] Add points to World
+- [ ] Create configuration for demo Points
 - [ ] Load demos from files via url
 - [ ] List demos on left of DemosComponent
+- [ ] Setup routing for singular Demo
 - [ ] Load demo on click
 - [ ] Display title, description, configuration in DemoComponent
 - [ ] Implement demo Point
+- [ ] Implement demo Speed
+- [ ] Implement demo Points
 - [ ] Create demo Collision
 - [ ] Implement demo Collision
-- [ ] Create demo Gravity
-- [ ] Create demo Segment
-- [ ] Create demo Triangle
-- [ ] Create demo Object
+- [ ] Create configuration for demo Gravity
+- [ ] Create configuration for demo Segment
+- [ ] Create configuration for demo Triangle
+- [ ] Create configuration for demo Object
 - [ ] Move points through the world
 - [ ] Create class segment
 - [ ] Add points, and force to segment

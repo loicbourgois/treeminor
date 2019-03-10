@@ -14,7 +14,7 @@
 - [x] Fix configuration for demo Point
 - [x] Add points to World
 - [x] Create configuration for demo Points
-- [ ] Load demos from files via url
+- [x] Load demos from files via url
 - [ ] List demos on left of DemosComponent
 - [ ] Setup routing for singular Demo
 - [ ] Load demo on click

@@ -8,7 +8,7 @@
 - [x] Update World
 - [x] Update Demo to use private properties
 - [x] Add configuration to Demo
-- [ ] Add loadConfiguration() to Demo
+- [x] Add loadConfiguration() to Demo
 - [ ] Create demo Speed
 - [ ] Create demo Points
 - [ ] Load demos from files via url

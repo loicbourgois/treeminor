@@ -15,7 +15,7 @@
 - [x] Add points to World
 - [x] Create configuration for demo Points
 - [x] Load demos from files via url
-- [ ] Write less log from DownloaderService
+- [x] Write less log from DownloaderService
 - [ ] List demos on left of DemosComponent
 - [ ] Setup routing for singular Demo
 - [ ] Load demo on click

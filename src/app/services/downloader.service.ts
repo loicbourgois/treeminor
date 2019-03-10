@@ -20,7 +20,7 @@ export class DownloaderService {
   }
 
   log(filename, data) {
-    console.log(filename, data);
+    console.log('Finished downloading ', filename);
   }
 
   logError(filename, error) {

@@ -1,4 +1,16 @@
 {
   "title": "Point",
-  "description": "Everything is points. Points are everything."
+  "description": "Everything is points. Points are everything.",
+  "configuration": {
+    "world": {
+      "width": 10,
+      "height": 10
+    },
+    "points": [
+      {
+        "x": 0.0,
+        "y": 0.0
+      }
+    ]
+  }
 }

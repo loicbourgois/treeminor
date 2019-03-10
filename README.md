@@ -9,6 +9,7 @@
 - [x] Update Demo to use private properties
 - [x] Add configuration to Demo
 - [x] Add loadConfiguration() to Demo
+- [x] Setup configuration for demo Point
 - [ ] Create demo Speed
 - [ ] Create demo Points
 - [ ] Load demos from files via url

@@ -18,6 +18,7 @@
 - [x] Create class Vector
 - [x] Add x, y to Vector
 - [x] Add position, speed, radius, color to Point
+- [x] Update World
 - [ ] Add configuration to Demo
 - [ ] Create demo Speed
 - [ ] Create demo Points

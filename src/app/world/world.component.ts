@@ -40,7 +40,10 @@ export class WorldComponent implements AfterViewInit {
         const worldFragmentShaderSource = data[2];
         const worldVertexShaderSource = data[3];
         const canvas: any = document.getElementById('canvas');
-        this.world = new World(10, 10);
+        this.world = new World({
+          width: 10,
+          height: 10
+        });
         this.renderer = new Renderer(canvas, fragmentShaderSource,
             vertexShaderSource, worldFragmentShaderSource,
             worldVertexShaderSource);

@@ -1,10 +1,10 @@
 export class World {
 
-  height;
-  width;
+  private height: number;
+  private width: number;
 
-  constructor(width, height) {
-    this.height = height;
-    this.width = width;
+  constructor(world: any) {
+    this.height = (world.height !== undefined) ? world.height : 1.0;
+    this.width = (world.width !== undefined) ? world.width : 1.0;
   }
 }

@@ -1,0 +1,31 @@
+{
+  "title": "Points",
+  "description": "By default, points don't care about each other.",
+  "configuration": {
+    "world": {
+      "width": 10,
+      "height": 10,
+      "points": [
+        {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "speed": {
+            "x": 1.0,
+            "y": 0.0
+          }
+        }, {
+          "position": {
+            "x": 1.0,
+            "y": 0.0
+          },
+          "speed": {
+            "x": 0.0,
+            "y": -0.5
+          }
+        }
+      ]
+    }
+  }
+}

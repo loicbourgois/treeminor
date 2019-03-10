@@ -3,8 +3,8 @@ export class Demo {
   private description: string;
   private title: string;
 
-  constructor() {
-    this.description = '';
-    this.title = '';
+  constructor(demo: any) {
+    this.description = (demo.description !== undefined) ? demo.description : '';
+    this.title = (demo.title !== undefined) ? demo.title : '';
   }
 }

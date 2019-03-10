@@ -19,7 +19,7 @@
 - [x] Add x, y to Vector
 - [x] Add position, speed, radius, color to Point
 - [x] Update World
-- [ ] Update Demo to use private properties
+- [x] Update Demo to use private properties
 - [ ] Add configuration to Demo
 - [ ] Add loadConfiguration() to Demo
 - [ ] Create demo Speed

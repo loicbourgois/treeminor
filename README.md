@@ -10,7 +10,7 @@
 - [x] Add configuration to Demo
 - [x] Add loadConfiguration() to Demo
 - [x] Setup configuration for demo Point
-- [ ] Create demo Speed
+- [x] Create demo Speed
 - [ ] Create demo Points
 - [ ] Load demos from files via url
 - [ ] List demos on left of DemosComponent

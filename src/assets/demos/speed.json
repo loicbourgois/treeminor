@@ -1,0 +1,22 @@
+{
+  "title": "Speed",
+  "description": "If you define a speed for a point, it moves.",
+  "configuration": {
+    "world": {
+      "width": 10,
+      "height": 10,
+      "points": [
+        {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "speed": {
+            "x": 1.0,
+            "y": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

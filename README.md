@@ -12,7 +12,7 @@
 - [x] Setup configuration for demo Point
 - [x] Create demo Speed
 - [x] Fix configuration for demo Point
-- [ ] Add points to World
+- [x] Add points to World
 - [ ] Create configuration for demo Points
 - [ ] Load demos from files via url
 - [ ] List demos on left of DemosComponent

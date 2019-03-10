@@ -7,7 +7,7 @@
 - [x] Add position, speed, radius, color to Point
 - [x] Update World
 - [x] Update Demo to use private properties
-- [ ] Add configuration to Demo
+- [x] Add configuration to Demo
 - [ ] Add loadConfiguration() to Demo
 - [ ] Create demo Speed
 - [ ] Create demo Points

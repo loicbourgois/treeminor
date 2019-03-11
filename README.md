@@ -17,6 +17,7 @@
 - [x] Load demos from files via url
 - [x] Write less log from DownloaderService
 - [x] List demos on left of DemosComponent
+- [ ] Add id to Demo
 - [ ] Setup routing for singular Demo
 - [ ] Load demo on click
 - [ ] Display title, description, configuration in DemoComponent

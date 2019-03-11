@@ -1,5 +1,7 @@
 <div class="list">
-  Demos list
+  <a *ngFor="let demo of demos" routerLink="/demo/{{demo.id}}">
+    {{demo.title}}
+  </a>
 </div>
 
 <tmn-demo>

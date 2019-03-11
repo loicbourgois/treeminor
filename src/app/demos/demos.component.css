@@ -11,7 +11,7 @@
   width: 0;
 }
 
-tmn-demo {
+router-outlet {
   flex-grow: 4;
   width: 0;
 }

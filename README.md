@@ -18,7 +18,7 @@
 - [x] Write less log from DownloaderService
 - [x] List demos on left of DemosComponent
 - [x] Add id to Demo
-- [ ] Setup routing for singular Demo
+- [x] Setup routing for singular Demo
 - [ ] Load demo on click
 - [ ] Display title, description, configuration in DemoComponent
 - [ ] Implement demo Point

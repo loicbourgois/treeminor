@@ -1,4 +1,5 @@
 {
+  "id": "speed",
   "title": "Speed",
   "description": "If you define a speed for a point, it moves.",
   "configuration": {

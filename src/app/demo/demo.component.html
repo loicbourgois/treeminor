@@ -1,1 +1,7 @@
-demo #{{demo ? demo.id : 'id'}}
+<div class="infos">
+  <h1>{{demo ? demo.title : 'title'}}</h1>
+  <p>{{demo ? demo.description : 'description'}}</p>
+  <h2>Configuration</h2>
+  <p class="json">{{(demo ? demo.configuration : '{}') | prettyJson}}</p>
+</div>
+<tmn-world></tmn-world>

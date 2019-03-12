@@ -11,6 +11,7 @@ import { EditorComponent } from './editor/editor.component';
 import { WorldComponent } from './world/world.component';
 import { DemoComponent } from './demo/demo.component';
 import { DemosComponent } from './demos/demos.component';
+import { PrettyJsonPipe } from './pretty-json.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DemosComponent } from './demos/demos.component';
     EditorComponent,
     WorldComponent,
     DemoComponent,
-    DemosComponent
+    DemosComponent,
+    PrettyJsonPipe
   ],
   imports: [
     BrowserModule,

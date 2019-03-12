@@ -12,6 +12,6 @@
 }
 
 router-outlet {
-  flex-grow: 4;
+  flex-grow: 0;
   width: 0;
 }

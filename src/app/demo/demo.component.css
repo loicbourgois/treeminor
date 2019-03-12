@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-grow: 4;
+  width: 0;
+}
+
+.infos {
+  flex-grow: 1;
+  padding: 1rem;
+  width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.infos > * {
+  padding-bottom: 0.5rem;
+}
+
+tmn-world {
+  flex-grow: 4;
+  width: 0;
+}
+
+.json {
+  overflow: auto;
+  white-space: pre-wrap;
+}

@@ -20,7 +20,7 @@
 - [x] Add id to Demo
 - [x] Setup routing for singular Demo
 - [x] Load demo on click
-- [ ] Display title, description, configuration in DemoComponent
+- [x] Display title, description, configuration in DemoComponent
 - [ ] Implement demo Point
 - [ ] Implement demo Speed
 - [ ] Implement demo Points

@@ -25,4 +25,9 @@ export class Demo {
     this.configuration = (demo.configuration !== undefined) ? demo.configuration : '';
     this.id = (demo.id !== undefined) ? demo.id : undefined;
   }
+
+  getWorldConfiguration() {
+    const worldConfiguration = JSON.stringify((JSON.parse(this.configuration)).configuration.world);
+    return worldConfiguration;
+  }
 }

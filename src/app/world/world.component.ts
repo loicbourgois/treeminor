@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { Input } from '@angular/core';
 import { DownloaderService } from '../services/downloader.service';
 import { forkJoin } from 'rxjs';
 import { Renderer } from '../engine/renderer';
@@ -10,6 +11,15 @@ import { World } from '../engine/world';
   styleUrls: ['./world.component.css']
 })
 export class WorldComponent implements AfterViewInit {
+
+  private pWorldConfiguration = '';
+
+  @Input()
+  set worldConfiguration(worldConfiguration: string) {
+    this.pWorldConfiguration = worldConfiguration;
+  }
+
+  get worldConfiguration(): string { return this.pWorldConfiguration; }
 
   fragmentShaderUrl = 'assets/shaders/default.frag';
   vertexShaderUrl = 'assets/shaders/default.vert';

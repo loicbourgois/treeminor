@@ -12,7 +12,7 @@
 - [x] Send worldConfiguration from DemoComponent to WorldComponent
 - [x] Create world from demo configuration file
 - [x] Reload world on demo change
-- [ ] Store shaders in one array for Renderer
+- [x] Store shaders in one array for Renderer
 - [ ] Use width and height from world for Renderer
 - [ ] Add shaders for points
 - [ ] Draw points

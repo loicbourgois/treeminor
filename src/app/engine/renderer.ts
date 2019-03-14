@@ -14,13 +14,12 @@ export class Renderer {
     height: 10.0
   };
 
-  constructor(canvas, fragmentShaderSource, vertexShaderSource,
-              worldFragmentShaderSource, worldVertexShaderSource) {
+  constructor(canvas, shadersSource) {
     this.canvas = canvas;
-    this.fragmentShaderSource = fragmentShaderSource;
-    this.vertexShaderSource = vertexShaderSource;
-    this.world.fragmentShaderSource = worldFragmentShaderSource;
-    this.world.vertexShaderSource = worldVertexShaderSource;
+    this.fragmentShaderSource = shadersSource.default.frag;
+    this.vertexShaderSource = shadersSource.default.vert;
+    this.world.fragmentShaderSource = shadersSource.world.frag;
+    this.world.vertexShaderSource = shadersSource.world.vert;
     const gl = canvas.getContext('webgl2');
     if (!gl) {
       console.error('No WebGL for you');

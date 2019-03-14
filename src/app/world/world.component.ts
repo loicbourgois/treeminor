@@ -55,9 +55,17 @@ export class WorldComponent implements AfterViewInit {
           const canvas: any = document.getElementById('canvas');
           this.world = new World(this.pWorldConfiguration);
           console.log(this.pWorldConfiguration, this.world.width);
-          this.renderer = new Renderer(canvas, fragmentShaderSource,
-              vertexShaderSource, worldFragmentShaderSource,
-              worldVertexShaderSource);
+          const shadersSource = {
+            default:  {
+              frag: fragmentShaderSource,
+              vert: vertexShaderSource
+            },
+            world: {
+              frag: worldFragmentShaderSource,
+              vert: worldVertexShaderSource
+            }
+          };
+          this.renderer = new Renderer(canvas, shadersSource);
         },
         error => console.error(error)
       );

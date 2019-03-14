@@ -9,8 +9,10 @@
 - [x] Setup routing for singular Demo
 - [x] Load demo on click
 - [x] Display title, description, configuration in DemoComponent
-- [x] Send configuration from DemoComponent to WorldComponent
+- [x] Send worldConfiguration from DemoComponent to WorldComponent
 - [ ] Create world from demo configuration file
+- [ ] Store shaders in one array for Renderer
+- [ ] Use width and height from world for Renderer
 - [ ] Add shaders for points
 - [ ] Draw points
 - [ ] Implement demo Point

@@ -2,18 +2,6 @@
 
 ## Backlog
 
-- [x] Create class Vector
-- [x] Add x, y to Vector
-- [x] Add position, speed, radius, color to Point
-- [x] Update World
-- [x] Update Demo to use private properties
-- [x] Add configuration to Demo
-- [x] Add loadConfiguration() to Demo
-- [x] Setup configuration for demo Point
-- [x] Create demo Speed
-- [x] Fix configuration for demo Point
-- [x] Add points to World
-- [x] Create configuration for demo Points
 - [x] Load demos from files via url
 - [x] Write less log from DownloaderService
 - [x] List demos on left of DemosComponent
@@ -21,6 +9,10 @@
 - [x] Setup routing for singular Demo
 - [x] Load demo on click
 - [x] Display title, description, configuration in DemoComponent
+- [ ] Send configuration from DemoComponent to WorldComponent
+- [ ] Create world from demo configuration file
+- [ ] Add shaders for points
+- [ ] Draw points
 - [ ] Implement demo Point
 - [ ] Implement demo Speed
 - [ ] Implement demo Points

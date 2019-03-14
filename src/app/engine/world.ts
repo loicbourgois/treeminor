@@ -7,6 +7,21 @@ export class World {
   private points: Point[];
 
   constructor(world: any) {
+    this.loadConfiguration(world);
+  }
+
+  loadConfiguration(configuration: any) {
+    let jsonConfiguration: string;
+    if (!configuration) {
+      jsonConfiguration = '{}';
+    } else if (typeof configuration === 'string') {
+      jsonConfiguration = configuration;
+    } else if ( configuration instanceof String) {
+      jsonConfiguration = configuration as string;
+    } else {
+      jsonConfiguration = JSON.stringify(configuration);
+    }
+    const world = JSON.parse(jsonConfiguration);
     // Initialise height
     this.height = (world.height !== undefined) ? world.height : 1.0;
     // Initilise width
@@ -14,7 +29,7 @@ export class World {
     // Initialise points
     this.points = [];
     if (world.points) {
-      world.points.forEach(function(point) {
+      world.points.forEach(point => {
         this.points.push(new Point(point));
       });
     } else {

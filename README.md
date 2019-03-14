@@ -11,7 +11,7 @@
 - [x] Display title, description, configuration in DemoComponent
 - [x] Send worldConfiguration from DemoComponent to WorldComponent
 - [x] Create world from demo configuration file
-- [ ] Reload world on demo change
+- [x] Reload world on demo change
 - [ ] Store shaders in one array for Renderer
 - [ ] Use width and height from world for Renderer
 - [ ] Add shaders for points

@@ -1,25 +1,15 @@
+import { World } from './world';
+
 export class Renderer {
 
   canvas;
   fragmentShader;
-  fragmentShaderSource;
   vertexShader;
-  vertexShaderSource;
-  world = {
-    fragmentShader: null,
-    fragmentShaderSource: null,
-    vertexShader: null,
-    vertexShaderSource: null,
-    width: 10.0,
-    height: 10.0
-  };
+  world: World;
 
-  constructor(canvas, shadersSource) {
+  constructor(canvas, shadersSource, world) {
     this.canvas = canvas;
-    this.fragmentShaderSource = shadersSource.default.frag;
-    this.vertexShaderSource = shadersSource.default.vert;
-    this.world.fragmentShaderSource = shadersSource.world.frag;
-    this.world.vertexShaderSource = shadersSource.world.vert;
+    this.world = world;
     const gl = canvas.getContext('webgl2');
     if (!gl) {
       console.error('No WebGL for you');
@@ -32,8 +22,8 @@ export class Renderer {
     // World shader
     //
     {
-      this.vertexShader = this.createShader(gl, gl.VERTEX_SHADER, this.world.vertexShaderSource);
-      this.fragmentShader = this.createShader(gl, gl.FRAGMENT_SHADER, this.world.fragmentShaderSource);
+      this.vertexShader = this.createShader(gl, gl.VERTEX_SHADER, shadersSource.world.vert);
+      this.fragmentShader = this.createShader(gl, gl.FRAGMENT_SHADER, shadersSource.world.frag);
       const program = this.createProgram(gl, this.vertexShader, this.fragmentShader);
 
       // Attributes
@@ -81,8 +71,8 @@ export class Renderer {
     // Default shader
     //
     {
-      this.vertexShader = this.createShader(gl, gl.VERTEX_SHADER, this.vertexShaderSource);
-      this.fragmentShader = this.createShader(gl, gl.FRAGMENT_SHADER, this.fragmentShaderSource);
+      this.vertexShader = this.createShader(gl, gl.VERTEX_SHADER, shadersSource.default.vert);
+      this.fragmentShader = this.createShader(gl, gl.FRAGMENT_SHADER, shadersSource.default.frag);
       const program = this.createProgram(gl, this.vertexShader, this.fragmentShader);
 
       // Attributes

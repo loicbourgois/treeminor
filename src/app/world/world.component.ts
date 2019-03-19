@@ -53,8 +53,7 @@ export class WorldComponent implements AfterViewInit {
           const worldFragmentShaderSource = data[2];
           const worldVertexShaderSource = data[3];
           const canvas: any = document.getElementById('canvas');
-          this.world = new World(this.pWorldConfiguration);
-          console.log(this.pWorldConfiguration, this.world.width);
+          const world = new World(this.pWorldConfiguration);
           const shadersSource = {
             default:  {
               frag: fragmentShaderSource,
@@ -65,7 +64,7 @@ export class WorldComponent implements AfterViewInit {
               vert: worldVertexShaderSource
             }
           };
-          this.renderer = new Renderer(canvas, shadersSource);
+          this.renderer = new Renderer(canvas, shadersSource, world);
         },
         error => console.error(error)
       );

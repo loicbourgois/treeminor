@@ -13,7 +13,7 @@
 - [x] Create world from demo configuration file
 - [x] Reload world on demo change
 - [x] Store shaders in one array for Renderer
-- [ ] Use width and height from world for Renderer
+- [x] Use width and height from world for Renderer
 - [ ] Refactor Renderer
 - [ ] Add shaders for points
 - [ ] Draw points

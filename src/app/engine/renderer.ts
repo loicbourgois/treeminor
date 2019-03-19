@@ -14,7 +14,7 @@ export class Renderer {
     if (!gl) {
       console.error('No WebGL for you');
     }
-    const scale = [0.9 / this.world.width, 0.9 / this.world.height];
+    const scale = [0.9 / this.world.getWidth(), 0.9 / this.world.getHeight()];
     // Clear the canvas
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
@@ -33,13 +33,15 @@ export class Renderer {
       // Buffer
       const positionBuffer = gl.createBuffer();
       gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+      const width = this.world.getWidth();
+      const height = this.world.getHeight();
       const positions = [
-        -this.world.width, -this.world.height,
-        this.world.width, -this.world.height,
-        -this.world.width, this.world.height,
-        this.world.width, this.world.height,
-        this.world.width, -this.world.height,
-        -this.world.width, this.world.height
+        -width, -height,
+        width, -height,
+        -width, height,
+        width, height,
+        width, -height,
+        -width, height
       ];
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
       // Vertex Array

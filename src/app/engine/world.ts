@@ -36,4 +36,13 @@ export class World {
       // NTD
     }
   }
+
+  getWidth() {
+    return this.width;
+  }
+
+  getHeight() {
+    return this.height;
+  }
+
 }

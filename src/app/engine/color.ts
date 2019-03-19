@@ -6,7 +6,7 @@ export class Color {
   private a: number;
 
   constructor(color: any) {
-    this.loadConfiguration();
+    this.loadConfiguration(color);
   }
 
   loadConfiguration(configuration: any) {

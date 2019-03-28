@@ -14,7 +14,7 @@
 - [x] Reload world on demo change
 - [x] Store shaders in one array for Renderer
 - [x] Use width and height from world for Renderer
-- [ ] Refactor Renderer
+- [x] Refactor Renderer
 - [ ] Add shaders for points
 - [ ] Draw points
 - [ ] Implement demo Point

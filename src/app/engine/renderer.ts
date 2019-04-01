@@ -10,11 +10,13 @@ export class Renderer {
   vertexShader;
   world: World;
   gl;
+  POINT_RADIUS;
 
   //
   // Constructor
   //
   constructor(canvas, shadersSource, world) {
+    this.POINT_RADIUS = 0.05;
     this.canvas = canvas;
     this.world = world;
     this.gl = canvas.getContext('webgl2');
@@ -22,6 +24,14 @@ export class Renderer {
       console.error('No Web.gl for you');
     }
     this.clearCanvas();
+
+    // Enable blending
+    this.gl.enable(this.gl.BLEND);
+
+    // Use additive blending to stack up drawings
+    // Source : https://stackoverflow.com/a/35544537
+    this.gl.blendFunc(this.gl.ONE, this.gl.ONE_MINUS_SRC_ALPHA);
+
     const scale = [0.9 / this.world.getWidth(), 0.9 / this.world.getHeight()];
     const width = this.world.getWidth();
     const height = this.world.getHeight();
@@ -38,10 +48,17 @@ export class Renderer {
       0, 1.0,
       0.5, 0,
     ];
+    const pointPositions = [
+      [0, 0],
+      [0, 1.0],
+      [0.5, 0],
+    ];
     const backgroundExtendedProgram = this.getExtendedProgram(shadersSource.world);
     const defaultExtendeProgram = this.getExtendedProgram(shadersSource.default);
-    this.drawScene(backgroundExtendedProgram, worldPositions, scale);
-    this.drawScene(defaultExtendeProgram, defaultPositions, scale);
+    const pointsExtendedProgram = this.getExtendedProgram(shadersSource.points);
+    this.drawTriangles(backgroundExtendedProgram, worldPositions, scale);
+    this.drawTriangles(defaultExtendeProgram, defaultPositions, scale);
+    this.drawPoints(pointsExtendedProgram, pointPositions, scale);
   }
 
   //
@@ -54,20 +71,24 @@ export class Renderer {
     const extendeProgram = {
       program: null,
       a_position: null,
-      u_scale: null
+      u_scale: null,
+      radius: null,
+      center: null
     };
     const vertexShader = this.createShader(this.gl, this.gl.VERTEX_SHADER, shadersSource.vert);
     const fragmentShader = this.createShader(this.gl, this.gl.FRAGMENT_SHADER, shadersSource.frag);
     extendeProgram.program = this.createProgram(this.gl, vertexShader, fragmentShader);
     extendeProgram.a_position = this.gl.getAttribLocation(extendeProgram.program, 'a_position');
     extendeProgram.u_scale = this.gl.getUniformLocation(extendeProgram.program, 'u_scale');
+    extendeProgram.center = this.gl.getUniformLocation(extendeProgram.program, 'center');
+    extendeProgram.radius = this.gl.getUniformLocation(extendeProgram.program, 'radius');
     return extendeProgram;
   }
 
   //
   //
   //
-  drawScene(extendeProgram, data, scale) {
+  drawTriangles(extendeProgram, data, scale) {
     //
     // Buffer
     //
@@ -102,6 +123,72 @@ export class Renderer {
     this.gl.bindVertexArray(vao);
     // Set scale
     this.gl.uniform2fv(extendeProgram.u_scale, scale);
+    // What to draw
+    const primitiveType = this.gl.TRIANGLES;
+    // Draw it
+    this.gl.drawArrays(primitiveType, offset, count);
+  }
+
+  //
+  //
+  //
+  drawPoints(extendeProgram, points, scale) {
+    points.forEach(point => {
+      this.drawPoint(extendeProgram, point, scale);
+    });
+  }
+
+  //
+  //
+  //
+  drawPoint(extendeProgram, center, scale) {
+
+    const length = 0.15;
+    const data = [
+      center[0] - length, center[1] - length,
+      center[0] + length, center[1] - length,
+      center[0] - length, center[1] + length,
+      center[0] + length, center[1] + length,
+      center[0] + length, center[1] - length,
+      center[0] - length, center[1] + length
+    ];
+    //
+    // Buffer
+    //
+    const positionBuffer = this.gl.createBuffer();
+    this.gl.bindBuffer(this.gl.ARRAY_BUFFER, positionBuffer);
+    this.gl.bufferData(this.gl.ARRAY_BUFFER, new Float32Array(data), this.gl.STATIC_DRAW);
+    //
+    // Vertex Array
+    //
+    const vao = this.gl.createVertexArray();
+    this.gl.bindVertexArray(vao);
+    // Tell WebGL that the attribute should be filled with data from our array buffer
+    this.gl.enableVertexAttribArray(extendeProgram.a_position);
+    //
+    // binds the buffer currently bound to gl.ARRAY_BUFFER
+    // to a generic vertex attribute of the current vertex buffer object and specifies its layout
+    //
+    const size = 2;                   // 2 components per iteration
+    const type = this.gl.FLOAT;       // the data is 32bit floats
+    const normalize = false;          // don't normalize the data
+    const stride = 0;                 // 0 = move forward size * sizeof(type) each iteration to get the next position
+    const offset = 0;                 // start at the beginning of the buffer
+    const count = data.length / size; // number of datapoints
+    this.gl.vertexAttribPointer(
+        extendeProgram.a_position, size, type, normalize, stride, offset
+    );
+    // Resizing
+    this.resizeCanvasAndViewport();
+    // Register program tu use
+    this.gl.useProgram(extendeProgram.program);
+    // Pass vertex array
+    this.gl.bindVertexArray(vao);
+    // Set scale
+    this.gl.uniform2fv(extendeProgram.u_scale, scale);
+    //
+    this.gl.uniform2fv(extendeProgram.center, center);
+    this.gl.uniform1f(extendeProgram.radius, this.POINT_RADIUS);
     // What to draw
     const primitiveType = this.gl.TRIANGLES;
     // Draw it

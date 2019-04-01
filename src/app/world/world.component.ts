@@ -26,6 +26,8 @@ export class WorldComponent implements AfterViewInit {
   vertexShaderUrl = 'assets/shaders/default.vert';
   worldFragmentShaderUrl = 'assets/shaders/world.frag';
   worldVertexShaderUrl = 'assets/shaders/world.vert';
+  pointsFragmentShaderUrl = 'assets/shaders/points.frag';
+  pointsVertexShaderUrl = 'assets/shaders/points.vert';
 
   fragmentShaderSource = '';
   vertexShaderSource = '';
@@ -45,23 +47,25 @@ export class WorldComponent implements AfterViewInit {
         this.downloaderService.getTextFile(this.fragmentShaderUrl),
         this.downloaderService.getTextFile(this.vertexShaderUrl),
         this.downloaderService.getTextFile(this.worldFragmentShaderUrl),
-        this.downloaderService.getTextFile(this.worldVertexShaderUrl)
+        this.downloaderService.getTextFile(this.worldVertexShaderUrl),
+        this.downloaderService.getTextFile(this.pointsFragmentShaderUrl),
+        this.downloaderService.getTextFile(this.pointsVertexShaderUrl)
       ).subscribe(
         data => {
-          const fragmentShaderSource = data[0];
-          const vertexShaderSource = data[1];
-          const worldFragmentShaderSource = data[2];
-          const worldVertexShaderSource = data[3];
           const canvas: any = document.getElementById('canvas');
           const world = new World(this.pWorldConfiguration);
           const shadersSource = {
             default:  {
-              frag: fragmentShaderSource,
-              vert: vertexShaderSource
+              frag: data[0],
+              vert: data[1]
             },
             world: {
-              frag: worldFragmentShaderSource,
-              vert: worldVertexShaderSource
+              frag: data[2],
+              vert: data[3]
+            },
+            points: {
+              frag: data[4],
+              vert: data[5]
             }
           };
           this.renderer = new Renderer(canvas, shadersSource, world);

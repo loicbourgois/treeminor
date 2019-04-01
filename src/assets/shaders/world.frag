@@ -9,5 +9,5 @@ out vec4 outColor;
 
 void main() {
   // Just set the output to a constant black
-  outColor = vec4(0, 0, 0, 1);
+  outColor = vec4(0.0, 0.0, 0.0, 1.0);
 }

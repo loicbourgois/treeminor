@@ -15,8 +15,8 @@
 - [x] Store shaders in one array for Renderer
 - [x] Use width and height from world for Renderer
 - [x] Refactor Renderer
-- [ ] Add shaders for points
-- [ ] Draw points
+- [x] Add shaders for points
+- [x] Draw points
 - [ ] Implement demo Point
 - [ ] Implement demo Speed
 - [ ] Implement demo Points

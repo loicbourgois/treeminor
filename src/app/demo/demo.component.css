@@ -22,6 +22,8 @@ tmn-world {
 }
 
 .json {
+  height: 0;
+  flex-grow: 1;
   overflow: auto;
   white-space: pre-wrap;
 }

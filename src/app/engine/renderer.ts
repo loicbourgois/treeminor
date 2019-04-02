@@ -11,6 +11,8 @@ export class Renderer {
   world: World;
   gl;
   POINT_RADIUS;
+  backgroundExtendedProgram;
+  pointsExtendedProgram;
 
   //
   // Constructor
@@ -23,7 +25,6 @@ export class Renderer {
     if (!this.gl) {
       console.error('No Web.gl for you');
     }
-    this.clearCanvas();
 
     // Enable blending
     this.gl.enable(this.gl.BLEND);
@@ -32,33 +33,23 @@ export class Renderer {
     // Source : https://stackoverflow.com/a/35544537
     this.gl.blendFunc(this.gl.ONE, this.gl.ONE_MINUS_SRC_ALPHA);
 
-    const scale = [0.9 / this.world.getWidth(), 0.9 / this.world.getHeight()];
-    const width = this.world.getWidth();
-    const height = this.world.getHeight();
-    const worldPositions = [
-      -width, -height,
-      width, -height,
-      -width, height,
-      width, height,
-      width, -height,
-      -width, height
-    ];
-    const defaultPositions = [
-      0, 0,
-      0, 1.0,
-      0.5, 0,
-    ];
-    const pointPositions = [
-      [0, 0],
-      [0, 1.0],
-      [0.5, 0],
-    ];
-    const backgroundExtendedProgram = this.getExtendedProgram(shadersSource.world);
+    //
+    this.backgroundExtendedProgram = this.getExtendedProgram(shadersSource.world);
     const defaultExtendeProgram = this.getExtendedProgram(shadersSource.default);
-    const pointsExtendedProgram = this.getExtendedProgram(shadersSource.points);
-    this.drawTriangles(backgroundExtendedProgram, worldPositions, scale);
-    this.drawTriangles(defaultExtendeProgram, defaultPositions, scale);
-    this.drawPoints(pointsExtendedProgram, pointPositions, scale);
+    this.pointsExtendedProgram = this.getExtendedProgram(shadersSource.points);
+
+    //
+    this.draw();
+  }
+
+  //
+  //
+  //
+  draw() {
+    const scale = [0.9 / this.world.getWidth(), 0.9 / this.world.getHeight()];
+    this.clearCanvas();
+    this.drawTriangles(this.backgroundExtendedProgram, this.world.getBackgroundPositions(), scale);
+    this.drawPoints(this.pointsExtendedProgram, this.world.getPointsPositions(), scale);
   }
 
   //

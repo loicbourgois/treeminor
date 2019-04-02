@@ -17,7 +17,7 @@
 - [x] Refactor Renderer
 - [x] Add shaders for points
 - [x] Draw points
-- [ ] Implement demo Point
+- [x] Implement demo Point
 - [ ] Implement demo Speed
 - [ ] Implement demo Points
 - [ ] Create demo Collision

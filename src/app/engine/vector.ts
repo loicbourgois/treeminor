@@ -22,4 +22,8 @@ export class Vector {
     this.x = (vector.x !== undefined) ? vector.x : 0.0;
     this.y = (vector.y !== undefined) ? vector.y : 0.0;
   }
+
+  asArray() {
+    return [this.x, this.y];
+  }
 }

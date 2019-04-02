@@ -29,4 +29,8 @@ export class Point {
     this.radius = (point.radius !== undefined) ? point.radius : 1.0;
     this.color = new Color(point.color);
   }
+
+  getPosition() {
+    return this.position;
+  }
 }

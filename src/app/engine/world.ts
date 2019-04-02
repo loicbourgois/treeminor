@@ -45,4 +45,25 @@ export class World {
     return this.height;
   }
 
+  getPointsPositions() {
+    const pointPositions = [];
+    this.points.forEach(point => {
+      pointPositions.push(point.getPosition().asArray());
+    });
+    return pointPositions;
+  }
+
+  getBackgroundPositions() {
+    const width = this.getWidth();
+    const height = this.getHeight();
+    const worldPositions = [
+      -width, -height,
+      width, -height,
+      -width, height,
+      width, height,
+      width, -height,
+      -width, height
+    ];
+    return worldPositions;
+  }
 }

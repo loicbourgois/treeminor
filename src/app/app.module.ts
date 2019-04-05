@@ -8,7 +8,7 @@ import { PlaygroundComponent } from './playground/playground.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EditorComponent } from './editor/editor.component';
-import { WorldComponent } from './world/world.component';
+import { SimulationComponent } from './simulation/simulation.component';
 import { DemoComponent } from './demo/demo.component';
 import { DemosComponent } from './demos/demos.component';
 import { PrettyJsonPipe } from './pretty-json.pipe';
@@ -20,7 +20,7 @@ import { PrettyJsonPipe } from './pretty-json.pipe';
     HomeComponent,
     PageNotFoundComponent,
     EditorComponent,
-    WorldComponent,
+    SimulationComponent,
     DemoComponent,
     DemosComponent,
     PrettyJsonPipe

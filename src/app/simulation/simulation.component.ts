@@ -7,11 +7,11 @@ import { World } from '../engine/world';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'tmn-world',
-  templateUrl: './world.component.html',
-  styleUrls: ['./world.component.css']
+  selector: 'tmn-simulation',
+  templateUrl: './simulation.component.html',
+  styleUrls: ['./simulation.component.css']
 })
-export class WorldComponent implements AfterViewInit {
+export class SimulationComponent implements AfterViewInit {
 
   private pWorldConfiguration = '';
   private drawInterval;

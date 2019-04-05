@@ -5,6 +5,7 @@ export class World {
   private height: number;
   private width: number;
   private points: Point[];
+  private gravity: number;
 
   constructor(world: any) {
     this.loadConfiguration(world);
@@ -35,6 +36,8 @@ export class World {
     } else {
       // NTD
     }
+    // Initialise gravity
+    this.gravity = (world.gravity !== undefined) ? world.gravity : 0.0;
   }
 
   advance(delta: number) {

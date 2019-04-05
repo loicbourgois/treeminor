@@ -12,7 +12,8 @@ export class DemosComponent implements OnInit {
   private static readonly DEMO_URLS: string [] = [
     'assets/demos/point.json',
     'assets/demos/speed.json',
-    'assets/demos/points.json'
+    'assets/demos/points.json',
+    'assets/demos/gravity.json'
   ];
   private demos: Demo [];
 

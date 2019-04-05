@@ -7,6 +7,7 @@ export class Point {
   private speed: Vector;
   private radius: number;
   private color: Color;
+  private mass: number;
 
   constructor(point: any) {
     this.loadConfiguration(point);
@@ -28,6 +29,7 @@ export class Point {
     this.speed = new Vector(point.speed);
     this.radius = (point.radius !== undefined) ? point.radius : 1.0;
     this.color = new Color(point.color);
+    this.mass = (point.mass !== undefined) ? point.mass : 1.0;
   }
 
   moveWithin(delta: number, xMin: number, xMax: number, yMin: number, yMax: number) {

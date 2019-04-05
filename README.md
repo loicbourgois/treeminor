@@ -2,33 +2,20 @@
 
 ## Backlog
 
-- [x] Load demos from files via url
-- [x] Write less log from DownloaderService
-- [x] List demos on left of DemosComponent
-- [x] Add id to Demo
-- [x] Setup routing for singular Demo
-- [x] Load demo on click
-- [x] Display title, description, configuration in DemoComponent
-- [x] Send worldConfiguration from DemoComponent to WorldComponent
-- [x] Create world from demo configuration file
-- [x] Reload world on demo change
-- [x] Store shaders in one array for Renderer
-- [x] Use width and height from world for Renderer
-- [x] Refactor Renderer
-- [x] Add shaders for points
-- [x] Draw points
 - [x] Implement demo Point
 - [x] Implement demo Speed
 - [x] Implement demo Points
-- [ ] Create demo Collision
+- [ ] Rename WorldComponent to SimulationComponent
+- [ ] Add class Simulation to handle advance loop and render loop
+- [ ] Hide outside part for points at the edge of the world
+- [ ] Create configuration for demo Collision
 - [ ] Implement demo Collision
 - [ ] Create configuration for demo Gravity
 - [ ] Create configuration for demo Segment
 - [ ] Create configuration for demo Triangle
 - [ ] Create configuration for demo Object
-- [ ] Move points through the world
-- [ ] Create class segment
-- [ ] Add points, and force to segment
+- [ ] Create class Segment
+- [ ] Add points, and force to Segment
 - [ ] Move segment by moving one of its point
 - [ ] Define a triangle as 3 points, 3 segments
 - [ ] Move triangle

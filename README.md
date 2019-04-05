@@ -6,7 +6,7 @@
 - [x] Implement demo Speed
 - [x] Implement demo Points
 - [x] Rename WorldComponent to SimulationComponent
-- [ ] Add class Simulation to handle advance loop and render loop
+- [x] Add class Simulation to handle advance loop and render loop
 - [ ] Hide outside part for points at the edge of the world
 - [ ] Create configuration for demo Collision
 - [ ] Implement demo Collision

@@ -37,9 +37,6 @@ export class Renderer {
     this.backgroundExtendedProgram = this.getExtendedProgram(shadersSource.world);
     const defaultExtendeProgram = this.getExtendedProgram(shadersSource.default);
     this.pointsExtendedProgram = this.getExtendedProgram(shadersSource.points);
-
-    //
-    this.draw();
   }
 
   //

@@ -23,7 +23,25 @@ export class Vector {
     this.y = (vector.y !== undefined) ? vector.y : 0.0;
   }
 
+  translate(x, y) {
+    this.x = this.x + x;
+    this.y = this.y + y;
+  }
+
+  set(x: number, y: number) {
+    this.x = x;
+    this.y = y;
+  }
+
   asArray() {
     return [this.x, this.y];
+  }
+
+  getX() {
+    return this.x;
+  }
+
+  getY() {
+    return this.y;
   }
 }

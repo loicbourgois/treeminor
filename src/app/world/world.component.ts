@@ -14,6 +14,9 @@ import { ActivatedRoute } from '@angular/router';
 export class WorldComponent implements AfterViewInit {
 
   private pWorldConfiguration = '';
+  private drawInterval;
+  private advanceInterval;
+  private lastAdvanceTime;
 
   @Input()
   set worldConfiguration(worldConfiguration: string) {
@@ -34,15 +37,13 @@ export class WorldComponent implements AfterViewInit {
   fragmentShader = null;
   vertexShader = null;
 
-  renderer = null;
-  world = null;
-
   constructor(private downloaderService: DownloaderService,
               private route: ActivatedRoute) {
   }
 
   ngAfterViewInit() {
     this.route.paramMap.subscribe( params => {
+      this.stop();
       forkJoin(
         this.downloaderService.getTextFile(this.fragmentShaderUrl),
         this.downloaderService.getTextFile(this.vertexShaderUrl),
@@ -68,10 +69,41 @@ export class WorldComponent implements AfterViewInit {
               vert: data[5]
             }
           };
-          this.renderer = new Renderer(canvas, shadersSource, world);
+          const renderer = new Renderer(canvas, shadersSource, world);
+          this.start(renderer, world);
         },
         error => console.error(error)
       );
     });
+  }
+
+  start(renderer, world) {
+    renderer.draw();
+    this.drawInterval = setInterval(() => {
+      this.drawLoop(renderer);
+    }, 10);
+    this.lastAdvanceTime = new Date().getTime();
+    this.advanceInterval = setInterval(() => {
+      this.advanceLoop(world);
+    }, 10);
+  }
+
+  stop() {
+    if (this.drawInterval) {
+      clearInterval(this.drawInterval);
+    }
+    if (this.advanceInterval) {
+      clearInterval(this.advanceInterval);
+    }
+  }
+
+  drawLoop(renderer) {
+    renderer.draw();
+  }
+
+  advanceLoop(world) {
+    const timeNow = new Date().getTime();
+    world.advance((timeNow - this.lastAdvanceTime) / 1000.0);
+    this.lastAdvanceTime = timeNow;
   }
 }

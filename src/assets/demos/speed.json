@@ -4,8 +4,8 @@
   "description": "If you define a speed for a point, it moves.",
   "configuration": {
     "world": {
-      "width": 10,
-      "height": 10,
+      "width": 2,
+      "height": 2,
       "points": [
         {
           "position": {
@@ -13,8 +13,8 @@
             "y": 0.0
           },
           "speed": {
-            "x": 1.0,
-            "y": 0.0
+            "x": 0.25,
+            "y": -0.30
           }
         }
       ]

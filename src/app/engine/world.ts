@@ -37,6 +37,12 @@ export class World {
     }
   }
 
+  advance(delta: number) {
+    this.points.forEach(point => {
+      point.moveWithin(delta, -this.width, this.width, -this.height, this.height);
+    });
+  }
+
   getWidth() {
     return this.width;
   }

@@ -30,6 +30,22 @@ export class Point {
     this.color = new Color(point.color);
   }
 
+  moveWithin(delta: number, xMin: number, xMax: number, yMin: number, yMax: number) {
+    let x = this.position.getX() + this.speed.getX() * delta;
+    x += xMax - xMin - xMin;
+    while (x > (xMax - xMin)) {
+      x -= (xMax - xMin);
+    }
+    x += xMin;
+    let y = this.position.getY() + this.speed.getY() * delta;
+    y += yMax - yMin - yMin;
+    while (y > (yMax - yMin)) {
+      y -= (yMax - yMin);
+    }
+    y += yMin;
+    this.position.set(x, y);
+  }
+
   getPosition() {
     return this.position;
   }

@@ -18,8 +18,8 @@
 - [x] Add shaders for points
 - [x] Draw points
 - [x] Implement demo Point
-- [ ] Implement demo Speed
-- [ ] Implement demo Points
+- [x] Implement demo Speed
+- [x] Implement demo Points
 - [ ] Create demo Collision
 - [ ] Implement demo Collision
 - [ ] Create configuration for demo Gravity

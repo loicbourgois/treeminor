@@ -4,8 +4,8 @@
   "description": "By default, points don't care about each other.",
   "configuration": {
     "world": {
-      "width": 10,
-      "height": 10,
+      "width": 2,
+      "height": 2,
       "points": [
         {
           "position": {

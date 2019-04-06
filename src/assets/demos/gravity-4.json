@@ -1,6 +1,6 @@
 {
-  "id": "gravity",
-  "title": "Gravity",
+  "id": "gravity-4",
+  "title": "Gravity 4",
   "description": "You can enable gravity to have points care about each other.",
   "configuration": {
     "world": {
@@ -10,22 +10,42 @@
       "points": [
         {
           "position": {
-            "x": 0.0,
+            "x": 2.0,
             "y": 0.0
           },
           "speed": {
-            "x": -0.5,
+            "x": 0.0,
             "y": 0.0
           },
           "mass": 1.0
         }, {
           "position": {
-            "x": 1.0,
+            "x": -2.0,
             "y": 0.0
           },
           "speed": {
             "x": 0.0,
-            "y": -0.5
+            "y": 0.0
+          },
+          "mass": 1.0
+        }, {
+          "position": {
+            "x": 0.0,
+            "y": 2.0
+          },
+          "speed": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "mass": 1.0
+        }, {
+          "position": {
+            "x": 0.0,
+            "y": -2.0
+          },
+          "speed": {
+            "x": 0.0,
+            "y": 0.0
           },
           "mass": 1.0
         }

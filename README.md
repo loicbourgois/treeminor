@@ -9,7 +9,12 @@
 - [x] Add class Simulation to handle advance loop and render loop
 - [ ] Hide outside part for points at the edge of the world
 - [x] Create configuration for demo Gravity
-- [ ] Implement demo Gravity
+- [x] Implement demo Gravity
+- [ ] Add proper tests for Vector static methods
+- [ ] Add option to not clear canvas
+- [ ] Add option to pick beetween classic engine and verlet engine
+- [ ] Reorder loadConfiguration methods to first treat object, then string
+- [ ] Allow for fixed point with gravity enabled
 - [ ] Fix lengthening of window when loading new demo
 - [ ] Create configuration for demo Collision
 - [ ] Implement demo Collision

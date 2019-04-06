@@ -13,7 +13,10 @@ export class DemosComponent implements OnInit {
     'assets/demos/point.json',
     'assets/demos/speed.json',
     'assets/demos/points.json',
-    'assets/demos/gravity.json'
+    'assets/demos/gravity.json',
+    'assets/demos/gravity-2.json',
+    'assets/demos/gravity-3.json',
+    'assets/demos/gravity-4.json'
   ];
   private demos: Demo [];
 

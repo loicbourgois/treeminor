@@ -4,8 +4,8 @@
   "description": "By default, points don't care about each other.",
   "configuration": {
     "world": {
-      "width": 2,
-      "height": 2,
+      "width": 10,
+      "height": 10,
       "points": [
         {
           "position": {
@@ -13,7 +13,7 @@
             "y": 0.0
           },
           "speed": {
-            "x": 1.0,
+            "x": -0.5,
             "y": 0.0
           }
         }, {

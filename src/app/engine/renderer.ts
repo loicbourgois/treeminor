@@ -43,7 +43,7 @@ export class Renderer {
   //
   //
   draw() {
-    const scale = [0.9 / this.world.getWidth(), 0.9 / this.world.getHeight()];
+    const scale = [0.9 / this.world.getWidth() * 2, 0.9 / this.world.getHeight() * 2];
     this.clearCanvas();
     this.drawTriangles(this.backgroundExtendedProgram, this.world.getBackgroundPositions(), scale);
     this.drawPoints(this.pointsExtendedProgram, this.world.getPointsPositions(), scale);

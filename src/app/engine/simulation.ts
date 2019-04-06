@@ -7,9 +7,12 @@ export class Simulation {
   private world: World;
   private drawInterval;
   private advanceInterval;
-  private lastAdvanceTime: number;
+  private lastTime: number;
+  private STEP = 0.05;
+  private STEP_SECOND;
 
   constructor(worldConfiguration, shadersSource, canvas: any) {
+    this.STEP_SECOND = this.STEP / 1000.0;
     this.world = new World(worldConfiguration);
     this.renderer = new Renderer(canvas, shadersSource, this.world);
   }
@@ -18,11 +21,12 @@ export class Simulation {
     this.renderer.draw();
     this.drawInterval = setInterval(() => {
       this.drawLoop();
-    }, 10);
-    this.lastAdvanceTime = new Date().getTime();
+    }, 0);
+    this.lastTime = new Date().getTime();
+    this.world.advance(this.STEP / 10.0);
     this.advanceInterval = setInterval(() => {
       this.advanceLoop();
-    }, 10);
+    }, 0);
   }
 
   stop() {
@@ -34,14 +38,18 @@ export class Simulation {
     }
   }
 
-  drawLoop(renderer) {
+  drawLoop() {
     this.renderer.draw();
   }
 
-  advanceLoop(world) {
+  advanceLoop() {
     const timeNow = new Date().getTime();
-    this.world.advance((timeNow - this.lastAdvanceTime) / 1000.0);
-    this.lastAdvanceTime = timeNow;
+    let delta = timeNow - this.lastTime;
+    while (delta > this.STEP) {
+      delta -= this.STEP;
+      this.world.advance(this.STEP_SECOND);
+    }
+    this.lastTime = timeNow - delta;
   }
 
 }

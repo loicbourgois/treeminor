@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class SimulationComponent implements AfterViewInit {
 
   private pWorldConfiguration = '';
+  private simulation: Simulation;
 
   @Input()
   set worldConfiguration(worldConfiguration: string) {

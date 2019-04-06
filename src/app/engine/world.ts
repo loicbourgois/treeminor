@@ -42,7 +42,19 @@ export class World {
 
   advance(delta: number) {
     this.points.forEach(point => {
-      point.moveWithin(delta, -this.width, this.width, -this.height, this.height);
+      point.resetAcceleration();
+    });
+    this.points.forEach(point => {
+      point.applyGravity(this.points, delta, this.gravity, this.width, this.height);
+    });
+    this.points.forEach(point => {
+      point.applyMovedGravity(this.points, delta, this.gravity, this.width, this.height);
+    });
+    this.points.forEach(point => {
+      point.updateSpeed(delta);
+    });
+    this.points.forEach(point => {
+      point.moveWithin(delta, -this.width / 2, this.width / 2, -this.height / 2, this.height / 2);
     });
   }
 
@@ -63,15 +75,15 @@ export class World {
   }
 
   getBackgroundPositions() {
-    const width = this.getWidth();
-    const height = this.getHeight();
+    const halfWidth = this.getWidth() / 2;
+    const halfHeight = this.getHeight() / 2;
     const worldPositions = [
-      -width, -height,
-      width, -height,
-      -width, height,
-      width, height,
-      width, -height,
-      -width, height
+      -halfWidth, -halfHeight,
+      halfWidth, -halfHeight,
+      -halfWidth, halfHeight,
+      halfWidth, halfHeight,
+      halfWidth, -halfHeight,
+      -halfWidth, halfHeight
     ];
     return worldPositions;
   }

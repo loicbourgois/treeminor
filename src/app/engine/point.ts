@@ -1,5 +1,6 @@
 import { Color } from './color';
 import { Vector } from './vector';
+import { Utils } from './utils';
 
 export class Point {
 
@@ -16,16 +17,7 @@ export class Point {
   }
 
   loadConfiguration(configuration: any) {
-    if (!configuration) {
-      configuration = {};
-    } else if (typeof configuration === 'string') {
-      configuration = JSON.parse(configuration);
-    } else if ( configuration instanceof String) {
-      configuration = JSON.parse(configuration as string);
-    } else {
-      // NTD
-    }
-    const point = configuration;
+    const point = Utils.getCheckedConfiguration(configuration);
     this.position = new Vector(point.position);
     this.speed = new Vector(point.speed);
     this.radius = (point.radius !== undefined) ? point.radius : 1.0;
@@ -74,10 +66,6 @@ export class Point {
         this.acceleration.add(xAcceleration, yAcceleration);
       }
     });
-  }
-
-  getDistanceToPoint(point) {
-    return this.getDistanceToCoordinates(point.position.getX(), point.position.getY());
   }
 
   getDistanceToCoordinates(x, y) {

@@ -1,4 +1,5 @@
 import { Point } from './point';
+import { Utils } from './utils';
 
 export class World {
 
@@ -12,17 +13,7 @@ export class World {
   }
 
   loadConfiguration(configuration: any) {
-    let jsonConfiguration: string;
-    if (!configuration) {
-      jsonConfiguration = '{}';
-    } else if (typeof configuration === 'string') {
-      jsonConfiguration = configuration;
-    } else if ( configuration instanceof String) {
-      jsonConfiguration = configuration as string;
-    } else {
-      jsonConfiguration = JSON.stringify(configuration);
-    }
-    const world = JSON.parse(jsonConfiguration);
+    const world = Utils.getCheckedConfiguration(configuration);
     // Initialise height
     this.height = (world.height !== undefined) ? world.height : 1.0;
     // Initilise width

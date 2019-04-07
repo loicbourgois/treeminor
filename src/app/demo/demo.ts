@@ -1,3 +1,5 @@
+import { Utils } from '../engine/utils';
+
 export class Demo {
 
   private description: string;
@@ -10,16 +12,8 @@ export class Demo {
   }
 
   loadConfiguration(configuration: any) {
-    let jsonConfiguration: string;
-    if (typeof configuration === 'string') {
-      jsonConfiguration = configuration;
-    } else if ( configuration instanceof String) {
-      jsonConfiguration = configuration as string;
-    } else {
-      jsonConfiguration = JSON.stringify(configuration);
-    }
-    const demo = JSON.parse(jsonConfiguration);
-    demo.configuration = jsonConfiguration;
+    const demo = Utils.getCheckedConfiguration(configuration);
+    demo.configuration = configuration;
     this.description = (demo.description !== undefined) ? demo.description : '';
     this.title = (demo.title !== undefined) ? demo.title : '';
     this.configuration = (demo.configuration !== undefined) ? demo.configuration : '';

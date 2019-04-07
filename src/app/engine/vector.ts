@@ -1,3 +1,5 @@
+import { Utils } from './utils';
+
 export class Vector {
 
   private x: number;
@@ -87,21 +89,8 @@ export class Vector {
     return new Vector({x, y});
   }
 
-  constructor(vector: any) {
-    this.loadConfiguration(vector);
-  }
-
-  loadConfiguration(configuration: any) {
-    if (!configuration) {
-      configuration = {};
-    } else if (typeof configuration === 'string') {
-      configuration = JSON.parse(configuration);
-    } else if (configuration instanceof String) {
-      configuration = JSON.parse(configuration as string);
-    } else {
-      // NTD
-    }
-    const vector = configuration;
+  constructor(configuration: any) {
+    const vector = Utils.getCheckedConfiguration(configuration);
     this.x = (vector.x !== undefined) ? vector.x : undefined;
     this.y = (vector.y !== undefined) ? vector.y : undefined;
   }

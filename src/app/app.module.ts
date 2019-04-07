@@ -22,7 +22,8 @@ import { PrettyJsonPipe } from './pretty-json.pipe';
     EditorComponent,
     SimulationComponent,
     DemoComponent,
-    DemosComponent
+    DemosComponent,
+    PrettyJsonPipe
   ],
   imports: [
     BrowserModule,

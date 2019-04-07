@@ -21,12 +21,12 @@ export class Simulation {
     this.renderer.draw();
     this.drawInterval = setInterval(() => {
       this.drawLoop();
-    }, 0);
+    }, 20);
     this.lastTime = new Date().getTime();
     this.world.advance(this.STEP / 10.0);
     this.advanceInterval = setInterval(() => {
       this.advanceLoop();
-    }, 0);
+    }, 20);
   }
 
   stop() {

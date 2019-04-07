@@ -10,7 +10,7 @@
 - [ ] Hide outside part for points at the edge of the world
 - [x] Create configuration for demo Gravity
 - [x] Implement demo Gravity
-- [ ] Fix memory leak
+- [ ] Fix memory leak
 - [ ] Add proper tests for Vector static methods
 - [ ] Add option to not clear canvas
 - [ ] Add option to pick beetween classic engine and verlet engine

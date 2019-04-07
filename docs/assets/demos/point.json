@@ -1,0 +1,19 @@
+{
+  "id": "point",
+  "title": "Point",
+  "description": "Everything is points. Points are everything.",
+  "configuration": {
+    "world": {
+      "width": 2,
+      "height": 2,
+      "points": [
+        {
+          "position": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

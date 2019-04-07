@@ -22,13 +22,12 @@ import { PrettyJsonPipe } from './pretty-json.pipe';
     EditorComponent,
     SimulationComponent,
     DemoComponent,
-    DemosComponent,
-    PrettyJsonPipe
+    DemosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -34,4 +34,8 @@ export class DemosComponent implements OnInit {
   ngOnInit() {
   }
 
+  getDemos() {
+    return this.demos;
+  }
+
 }

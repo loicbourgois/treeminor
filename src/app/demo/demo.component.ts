@@ -10,7 +10,7 @@ import { DownloaderService } from '../services/downloader.service';
 })
 export class DemoComponent implements OnInit {
 
-  private demo: Demo;
+  demo: Demo;
 
   constructor(private route: ActivatedRoute,
               private downloaderService: DownloaderService) { }

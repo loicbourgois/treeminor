@@ -30,4 +30,16 @@ export class Demo {
     const worldConfiguration = JSON.stringify((JSON.parse(this.configuration)).configuration.world);
     return worldConfiguration;
   }
+
+  getConfiguration() {
+    return this.configuration;
+  }
+
+  getTitle() {
+    return this.title;
+  }
+
+  getDescription() {
+    return this.description;
+  }
 }

@@ -1,5 +1,5 @@
 <div class="list">
-  <a *ngFor="let demo of demos" routerLink="/demo/{{demo.id}}">
+  <a *ngFor="let demo of getDemos()" routerLink="/demo/{{demo.id}}">
     {{demo.title}}
   </a>
 </div>

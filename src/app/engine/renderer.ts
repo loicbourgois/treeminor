@@ -13,6 +13,10 @@ export class Renderer {
   POINT_RADIUS;
   backgroundExtendedProgram;
   pointsExtendedProgram;
+  drawPointPositionBuffer;
+  drawTrianglesPositionBuffer;
+  drawPointVao;
+  drawTrianglesVao;
 
   //
   // Constructor
@@ -37,6 +41,13 @@ export class Renderer {
     this.backgroundExtendedProgram = this.getExtendedProgram(shadersSource.world);
     const defaultExtendeProgram = this.getExtendedProgram(shadersSource.default);
     this.pointsExtendedProgram = this.getExtendedProgram(shadersSource.points);
+
+    // Buffers
+    this.drawPointPositionBuffer = this.gl.createBuffer();
+    this.drawTrianglesPositionBuffer = this.gl.createBuffer();
+    // Vertex arrays
+    this.drawPointVao = this.gl.createVertexArray();
+    this.drawTrianglesVao = this.gl.createVertexArray();
   }
 
   //
@@ -80,14 +91,12 @@ export class Renderer {
     //
     // Buffer
     //
-    const positionBuffer = this.gl.createBuffer();
-    this.gl.bindBuffer(this.gl.ARRAY_BUFFER, positionBuffer);
+    this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.drawTrianglesPositionBuffer);
     this.gl.bufferData(this.gl.ARRAY_BUFFER, new Float32Array(data), this.gl.STATIC_DRAW);
     //
     // Vertex Array
     //
-    const vao = this.gl.createVertexArray();
-    this.gl.bindVertexArray(vao);
+    this.gl.bindVertexArray(this.drawTrianglesVao);
     // Tell WebGL that the attribute should be filled with data from our array buffer
     this.gl.enableVertexAttribArray(extendeProgram.a_position);
     //
@@ -108,7 +117,7 @@ export class Renderer {
     // Register program tu use
     this.gl.useProgram(extendeProgram.program);
     // Pass vertex array
-    this.gl.bindVertexArray(vao);
+    this.gl.bindVertexArray(this.drawTrianglesVao);
     // Set scale
     this.gl.uniform2fv(extendeProgram.u_scale, scale);
     // What to draw
@@ -143,14 +152,12 @@ export class Renderer {
     //
     // Buffer
     //
-    const positionBuffer = this.gl.createBuffer();
-    this.gl.bindBuffer(this.gl.ARRAY_BUFFER, positionBuffer);
+    this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.drawPointPositionBuffer);
     this.gl.bufferData(this.gl.ARRAY_BUFFER, new Float32Array(data), this.gl.STATIC_DRAW);
     //
     // Vertex Array
     //
-    const vao = this.gl.createVertexArray();
-    this.gl.bindVertexArray(vao);
+    this.gl.bindVertexArray(this.drawPointVao);
     // Tell WebGL that the attribute should be filled with data from our array buffer
     this.gl.enableVertexAttribArray(extendeProgram.a_position);
     //
@@ -171,7 +178,7 @@ export class Renderer {
     // Register program tu use
     this.gl.useProgram(extendeProgram.program);
     // Pass vertex array
-    this.gl.bindVertexArray(vao);
+    this.gl.bindVertexArray(this.drawPointVao);
     // Set scale
     this.gl.uniform2fv(extendeProgram.u_scale, scale);
     //

@@ -39,6 +39,12 @@ export class Vector {
     return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
   }
 
+  static getDistanceSquared(v1, v2) {
+    const deltaX = v1.x - v2.x;
+    const deltaY = v1.y - v2.y;
+    return deltaX * deltaX + deltaY * deltaY;
+  }
+
   static getClosestAlongNormal(vector, vectors, normal) {
     let returnVector = null;
     let distance = null;
@@ -58,11 +64,10 @@ export class Vector {
   }
 
   //
-  // line intercept math by Paul Bourke http://paulbourke.net/geometry/pointlineplane/
-  // Determine the intersection point of two line segments
-  // Return FALSE if the lines don't intersect
+  // Given 4 points, returns the point of intersection.
+  // Returns false if no intersection exist.
   //
-  static getIntersect(x1, y1, x2, y2, x3, y3, x4, y4) {
+  static getLineLineIntersect(x1, y1, x2, y2, x3, y3, x4, y4) {
     // Check if none of the lines are of length 0
     if ((x1 === x2 && y1 === y2) || (x3 === x4 && y3 === y4)) {
       return false;
@@ -75,17 +80,13 @@ export class Vector {
       return false;
     }
 
-    const ua = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / denominator;
-    const ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / denominator;
-
-    /*// is the intersection along the segments
-    if (ua < 0 || ua > 1 || ub < 0 || ub > 1) {
-      return false;
-    }*/
-
-    // Return a vector with the x and y coordinates of the intersection
-    const x = x1 + ua * (x2 - x1);
-    const y = y1 + ua * (y2 - y1);
+    // A valid intersect can be found
+    const a = (x1 * y2 - y1 * x2);
+    const b = (x3 * y4 - y3 * x4);
+    const xNumerator = a * (x3 - x4) - b * (x1 - x2);
+    const yNumerator = a * (y3 - y4) - b * (y1 - y2);
+    const x = xNumerator / denominator;
+    const y = yNumerator / denominator;
     return new Vector({x, y});
   }
 

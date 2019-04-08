@@ -51,7 +51,7 @@ export class Point {
 
   applyMovedGravity(points, delta, gravity, worldWidth, worldHeight) {
     points.forEach(point => {
-      const movedPosition = this.getMovedPositionForPoint(point, worldWidth, worldHeight);
+      const movedPosition = this.getMovedPositionForPoint2(point, worldWidth, worldHeight);
       if (movedPosition !== null) {
         const x = movedPosition.getX();
         const y = movedPosition.getY();
@@ -112,13 +112,13 @@ export class Point {
     const halfW = worldWidth / 2;
     const halfH = worldHeight / 2;
 
-    const topIntersect = Vector.getIntersect(x1, y1, x2, y2,
+    const topIntersect = Vector.getLineLineIntersect(x1, y1, x2, y2,
         -halfW, halfH, -halfW, halfH);
-    const botIntersect = Vector.getIntersect(x1, y1, x2, y2,
+    const botIntersect = Vector.getLineLineIntersect(x1, y1, x2, y2,
         -halfW, -halfH, -halfW, -halfH);
-    const leftIntersect = Vector.getIntersect(x1, y1, x2, y2,
+    const leftIntersect = Vector.getLineLineIntersect(x1, y1, x2, y2,
         -halfW, halfH, -halfW, -halfH);
-    const rightIntersect = Vector.getIntersect(x1, y1, x2, y2,
+    const rightIntersect = Vector.getLineLineIntersect(x1, y1, x2, y2,
         halfW, halfH, halfW, -halfH);
 
     const normalizedVector2 = Vector.getVectorFromVectorToVector(this.position, point.position).getNormalized();
@@ -135,6 +135,109 @@ export class Point {
       normalizedVector2);
 
     if (thisIntersect && pointIntersect) {
+
+      const vectorFromThisToThisIntersect = Vector.getVectorFromVectorToVector(this.position, thisIntersect);
+
+      const vectorFromPointIntersectToPoint = Vector.getVectorFromVectorToVector(pointIntersect, point.position);
+
+      const movedPosition = new Vector({x: this.position.getX(), y: this.position.getY()});
+      movedPosition.addVector(vectorFromThisToThisIntersect);
+      movedPosition.addVector(vectorFromPointIntersectToPoint);
+      return movedPosition;
+    } else {
+      return null;
+    }
+  }
+
+  getMovedPositionForPoint2(point, worldWidth, worldHeight) {
+    const x1 = this.position.getX();
+    const y1 = this.position.getY();
+    const x2 = point.position.getX();
+    const y2 = point.position.getY();
+    const halfW = worldWidth / 2;
+    const halfH = worldHeight / 2;
+
+    const topIntersect = Vector.getLineLineIntersect(x1, y1, x2, y2,
+        -halfW, halfH, -halfW, halfH);
+    const botIntersect = Vector.getLineLineIntersect(x1, y1, x2, y2,
+        -halfW, -halfH, -halfW, -halfH);
+    const leftIntersect = Vector.getLineLineIntersect(x1, y1, x2, y2,
+        -halfW, halfH, -halfW, -halfH);
+    const rightIntersect = Vector.getLineLineIntersect(x1, y1, x2, y2,
+        halfW, halfH, halfW, -halfH);
+
+
+    const pairs = [
+      {
+        position: this.position,
+        intersect: topIntersect,
+        distanceSquared: Vector.getDistanceSquared(this.position, topIntersect),
+      }, {
+        position: this.position,
+        intersect: botIntersect,
+        distanceSquared: Vector.getDistanceSquared(this.position, botIntersect),
+      }, {
+        position: this.position,
+        intersect: leftIntersect,
+        distanceSquared: Vector.getDistanceSquared(this.position, leftIntersect),
+      }, {
+        position: this.position,
+        intersect: rightIntersect,
+        distanceSquared: Vector.getDistanceSquared(this.position, rightIntersect),
+      }, {
+        position: point.position,
+        intersect: topIntersect,
+        distanceSquared: Vector.getDistanceSquared(point.position, topIntersect),
+      }, {
+        position: point.position,
+        intersect: botIntersect,
+        distanceSquared: Vector.getDistanceSquared(point.position, botIntersect),
+      }, {
+        position: point.position,
+        intersect: leftIntersect,
+        distanceSquared: Vector.getDistanceSquared(point.position, leftIntersect),
+      }, {
+        position: point.position,
+        intersect: rightIntersect,
+        distanceSquared: Vector.getDistanceSquared(point.position, rightIntersect),
+      }
+    ];
+    // Order by ascending distance
+    pairs.sort((a, b) => {
+      if (isNaN(a.distanceSquared)) {
+        return 1;
+      } else if (isNaN(b.distanceSquared)) {
+        return -1;
+      } else {
+        return a.distanceSquared - b.distanceSquared;
+      }
+    });
+
+    const firstPair = pairs[0];
+    pairs.shift();
+    let index = pairs.length - 1;
+
+    while (index >= 0) {
+      if (pairs[index].position === firstPair.position || pairs[index].intersect === firstPair.intersect) {
+        pairs.splice(index, 1);
+      } else {
+        // NTD
+      }
+      index -= 1;
+    }
+    const secondPair = pairs[0];
+
+    if (firstPair !== undefined && secondPair !== undefined) {
+      // NTD
+    } else {
+      return null;
+    }
+
+    const thisIntersect = firstPair.position === this.position ? firstPair.intersect : secondPair.intersect;
+
+    const pointIntersect = secondPair.position === point.position ? secondPair.intersect : firstPair.intersect;
+
+    if (thisIntersect && pointIntersect && thisIntersect !== pointIntersect) {
 
       const vectorFromThisToThisIntersect = Vector.getVectorFromVectorToVector(this.position, thisIntersect);
 

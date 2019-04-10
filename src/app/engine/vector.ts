@@ -90,6 +90,44 @@ export class Vector {
     return new Vector({x, y});
   }
 
+  //
+  // Given two vectors, v1, v2, compute clones for v2
+  // and then returns the 4 closest clones to v1.
+  //
+  // A clone is a copy of a vector in a neigbouring world.
+  //
+  // Relative to the current world,
+  // the copy is translated by n*width and m*height.
+  //
+  // The vector v2 is a clone of itself in its own world.
+  //
+  static getFourClosestClones(v1, v2, width, height) {
+    const ws = [-width, 0, width];
+    const hs = [-height, 0, height];
+    const vs = [];
+    ws.forEach(w => {
+      hs.forEach(h => {
+        const v = new Vector({x: v2.x + w, y: v2.y + h});
+        const distanceSquared = Vector.getDistanceSquared(v1, v);
+        if (!isNaN(distanceSquared)) {
+          vs.push({v, distanceSquared});
+        } else {
+          // NTD
+        }
+      });
+    });
+    // Order by ascending distance
+    vs.sort((a, b) => {
+      return a.distanceSquared - b.distanceSquared;
+    });
+    // Return vectors or false
+    if (vs.length >= 4) {
+      return [vs[0].v, vs[1].v, vs[2].v, vs[3].v];
+    } else {
+      return false;
+    }
+  }
+
   constructor(configuration: any) {
     const vector = Utils.getCheckedConfiguration(configuration);
     this.x = (vector.x !== undefined) ? vector.x : undefined;

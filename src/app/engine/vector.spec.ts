@@ -12,4 +12,16 @@ describe('Vector', () => {
       expect(v3.getY()).toBe(0.0);
     });
   });
+
+  describe('getFourClosestClones()', () => {
+    it('', () => {
+      const v1 = new Vector({x: 0.5, y: 0.0});
+      const v2 = new Vector({x: -0.5, y: 0.0});
+      const w = 10;
+      const h = 10;
+      const vs = Vector.getFourClosestClones(v1, v2, w, h);
+      expect(vs[0].getX()).toBe(-0.5);
+      console.log(vs);
+    });
+  });
 });

@@ -39,9 +39,6 @@ export class World {
       point.applyGravity(this.points, delta, this.gravity, this.width, this.height);
     });
     this.points.forEach(point => {
-      point.applyMovedGravity(this.points, delta, this.gravity, this.width, this.height);
-    });
-    this.points.forEach(point => {
       point.updateSpeed(delta);
     });
     this.points.forEach(point => {

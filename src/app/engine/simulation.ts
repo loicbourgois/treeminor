@@ -23,7 +23,7 @@ export class Simulation {
       this.drawLoop();
     }, 20);
     this.lastTime = new Date().getTime();
-    this.world.advance(this.STEP / 10.0);
+    this.world.advance(this.STEP / 100.0);
     this.advanceInterval = setInterval(() => {
       this.advanceLoop();
     }, 20);

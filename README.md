@@ -13,7 +13,7 @@
 - [x] Fix memory leak
 - [ ] Add proper tests for Vector static methods
 - [ ] Add option to not clear canvas
-- [ ] Add option to pick beetween classic engine and verlet engine
+- [x] Add option to pick beetween classic engine and verlet engine
 - [x] Reorder loadConfiguration methods to first treat object, then string
 - [ ] Allow for fixed point with gravity enabled
 - [ ] Fix lengthening of window when loading new demo

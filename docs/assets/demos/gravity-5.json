@@ -1,6 +1,6 @@
 {
-  "id": "gravity-2",
-  "title": "Gravity 2",
+  "id": "gravity-5",
+  "title": "Gravity 5",
   "description": "You can enable gravity to have points care about each other.",
   "configuration": {
     "world": {
@@ -14,7 +14,7 @@
             "y": 0.0
           },
           "speed": {
-            "x": -0.5,
+            "x": 0.0,
             "y": 0.0
           },
           "mass": 1.0
@@ -25,7 +25,7 @@
           },
           "speed": {
             "x": 0.0,
-            "y": -0.5
+            "y": 0.0
           },
           "mass": 1.0
         }

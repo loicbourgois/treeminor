@@ -39,9 +39,21 @@ export class Vector {
     return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
   }
 
+  static getDistanceToCoordinates(v, x, y) {
+    const deltaX = v.x - x;
+    const deltaY = v.y - y;
+    return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+  }
+
   static getDistanceSquared(v1, v2) {
     const deltaX = v1.x - v2.x;
     const deltaY = v1.y - v2.y;
+    return deltaX * deltaX + deltaY * deltaY;
+  }
+
+  static getDistanceSquaredToCoordinates(v, x, y) {
+    const deltaX = v.x - x;
+    const deltaY = v.y - y;
     return deltaX * deltaX + deltaY * deltaY;
   }
 
@@ -123,6 +135,42 @@ export class Vector {
     // Return vectors or false
     if (vs.length >= 4) {
       return [vs[0].v, vs[1].v, vs[2].v, vs[3].v];
+    } else {
+      return false;
+    }
+  }
+
+  //
+  // Same as getFourClosestClones, but return an array of [x, y] arrays
+  //
+  static getFourClosestClonesAsArrays(v1, v2, width, height) {
+    const ws = [-width, 0, width];
+    const hs = [-height, 0, height];
+    const vs = [];
+    ws.forEach(w => {
+      hs.forEach(h => {
+        const x = v2.x + w;
+        const y = v2.y + h;
+        const distanceSquared = Vector.getDistanceSquaredToCoordinates(v1, x, y);
+        if (!isNaN(distanceSquared)) {
+          vs.push({x, y, distanceSquared});
+        } else {
+          // NTD
+        }
+      });
+    });
+    // Order by ascending distance
+    vs.sort((a, b) => {
+      return a.distanceSquared - b.distanceSquared;
+    });
+    // Return vectors or false
+    if (vs.length >= 4) {
+      return [
+        [vs[0].x, vs[0].y],
+        [vs[1].x, vs[1].y],
+        [vs[2].x, vs[2].y],
+        [vs[3].x, vs[3].y]
+      ];
     } else {
       return false;
     }

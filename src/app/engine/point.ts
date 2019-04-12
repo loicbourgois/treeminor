@@ -98,13 +98,13 @@ export class Point {
   addGravityForces(points, gravity, worldWidth, worldHeight) {
     points.forEach(point => {
       if (point !== this) {
-        const fourClosestPosition = Vector.getFourClosestClones(this.position, point.position, worldWidth, worldHeight);
+        const fourClosestPosition = Vector.getFourClosestClonesAsArrays(this.position, point.position, worldWidth, worldHeight);
         if (fourClosestPosition) {
           fourClosestPosition.forEach(position => {
-            const x = position.getX();
-            const y = position.getY();
-            const distance = Vector.getDistance(this.position, position);
-            const force = distance > this.DISTANCE_TOLERANCE ? - gravity * this.mass * point.mass / (distance * distance) : 0;
+            const x = position[0];
+            const y = position[1];
+            const distance = Vector.getDistanceToCoordinates(this.position, x, y);
+            const force = distance > this.DISTANCE_TOLERANCE ? - gravity * this.mass * point.mass / (distance * distance) : 0.0;
             const xDelta = this.position.getX() - x;
             const yDelta = this.position.getY() - y;
             const xForce = xDelta * force;

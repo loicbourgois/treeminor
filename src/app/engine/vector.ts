@@ -144,11 +144,9 @@ export class Vector {
   // Same as getFourClosestClones, but return an array of [x, y] arrays
   //
   static getFourClosestClonesAsArrays(v1, v2, width, height) {
-    const ws = [-width, 0, width];
-    const hs = [-height, 0, height];
     const vs = [];
-    ws.forEach(w => {
-      hs.forEach(h => {
+    for (let w = -width ; w <= width ; w += width) {
+      for (let h = -height ; h <= height ; h += height) {
         const x = v2.x + w;
         const y = v2.y + h;
         const distanceSquared = Vector.getDistanceSquaredToCoordinates(v1, x, y);
@@ -157,8 +155,8 @@ export class Vector {
         } else {
           // NTD
         }
-      });
-    });
+      }
+    }
     // Order by ascending distance
     vs.sort((a, b) => {
       return a.distanceSquared - b.distanceSquared;

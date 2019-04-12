@@ -96,11 +96,13 @@ export class Point {
   // These forces are added to the point's forces.
   //
   addGravityForces(points, gravity, worldWidth, worldHeight) {
-    points.forEach(point => {
+    for (let i = 0, n = points.length ; i < n ; i++) {
+      const point = points[i];
       if (point !== this) {
         const fourClosestPosition = Vector.getFourClosestClonesAsArrays(this.position, point.position, worldWidth, worldHeight);
         if (fourClosestPosition) {
-          fourClosestPosition.forEach(position => {
+          for (let i2 = 0, n2 = fourClosestPosition.length ; i2 < n2 ; i2++) {
+            const position = fourClosestPosition[i2];
             const x = position[0];
             const y = position[1];
             const distance = Vector.getDistanceToCoordinates(this.position, x, y);
@@ -110,14 +112,14 @@ export class Point {
             const xForce = xDelta * force;
             const yForce = yDelta * force;
             this.forces.add(xForce, yForce);
-          });
+          }
         } else {
           // NTD
         }
       } else {
         // NTD
       }
-    });
+    }
   }
 
   updateSpeed(delta) {
